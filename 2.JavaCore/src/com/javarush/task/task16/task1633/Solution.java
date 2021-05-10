@@ -7,7 +7,6 @@ package com.javarush.task.task16.task1633;
 public class Solution {
     public static Thread.UncaughtExceptionHandler handler = new OurUncaughtExceptionHandler();
 
-
     public static void main(String[] args) {
         TestedThread commonThread = new TestedThread(handler);
 
@@ -23,8 +22,7 @@ public class Solution {
 
     public static class TestedThread extends Thread {
         public TestedThread(Thread.UncaughtExceptionHandler handler) {
-            Thread.setDefaultUncaughtExceptionHandler(handler);
-            // setUncaughtExceptionHandler(handler);
+            setUncaughtExceptionHandler(handler);
             start();
         }
 
