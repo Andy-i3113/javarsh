@@ -52,22 +52,7 @@ public class Solution {
 
         @Override
         public void run() {
-            for (String step : OnlineGame.steps) {
-                try {
-                    Thread.sleep((long) 1000/rating);
-                    System.out.println(getName() + ":" + step);
-
-                } catch (InterruptedException e) {
-                    System.out.println(getName() + ":проиграл");
-                    return;
-                }
-            }
-
-            if (!OnlineGame.isWinnerFound) {
-                System.out.println(getName() + ":победитель!");
-                OnlineGame.isWinnerFound = true;
-            }
-
+            //Add your code here - добавь код тут
         }
     }
 }

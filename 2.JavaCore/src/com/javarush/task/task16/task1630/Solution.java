@@ -1,9 +1,7 @@
 package com.javarush.task.task16.task1630;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.ArrayList;
 
 /* 
 Последовательный вывод файлов
@@ -17,9 +15,7 @@ public class Solution {
 
     static {
         try {
-            System.out.print("First file name: ");
             firstFileName = reader.readLine();
-            System.out.print("Second file name: ");
             secondFileName = reader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
@@ -39,6 +35,7 @@ public class Solution {
         f.setFileName(fileName);
         f.start();
         //add your code here - добавьте код тут
+        f.join();
         System.out.println(f.getFileContent());
     }
 
@@ -53,24 +50,51 @@ public class Solution {
         void start();
     }
 
-    private static class ReadFileThread extends Thread implements ReadFileInterface {
+    public static class ReadFileThread extends Thread implements ReadFileInterface {
+        private String fileName ;
+        private ArrayList<String> content;
+
+        public ReadFileThread() {
+            this.fileName = null;
+            this.content = new ArrayList<>();
+        }
+
+
         @Override
         public void setFileName(String fullFileName) {
-
+            this.fileName  = fullFileName;
         }
 
         @Override
         public String getFileContent() {
-            return null;
+            StringBuffer buf = new StringBuffer();
+            for (String s : content) {
+                buf.append(s).append(" ");
+            }
+            return buf.toString();
         }
 
-        @Override
-        public void join() throws InterruptedException {
 
-        }
+//        @Override
+//        public void join() throws InterruptedException {
+//
+//        }
 
         @Override
-        public void start() {
+        public void run() {
+
+            try {
+                BufferedReader fileReader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+                while (fileReader.ready()) {
+                    content.add(fileReader.readLine());
+                }
+                fileReader.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("File "+fileName+" not found");
+            } catch (IOException e) {
+                System.out.println("File "+fileName+" can't read");
+            }
+
 
         }
     }
