@@ -18,7 +18,7 @@ public class Solution {
 
     public static boolean isDateOdd(String date) {
 
-        boolean flag;
+        boolean flag = true;
         SimpleDateFormat format1 = new SimpleDateFormat("MMMMM d yyyy", Locale.ENGLISH);
 
         try {
