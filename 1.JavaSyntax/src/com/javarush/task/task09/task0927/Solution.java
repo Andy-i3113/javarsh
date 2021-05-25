@@ -1,6 +1,9 @@
 package com.javarush.task.task09.task0927;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /* 
 Десять котов
@@ -14,153 +17,21 @@ public class Solution {
     }
 
     public static Map<String, Cat> createMap() {
-       Map<String, Cat> animal = new Map<String, Cat>() {
-           @Override
-           public int size() {
-               return 0;
-           }
+        //напишите тут ваш код
+        HashMap <String, Cat> mapCats = new HashMap<String, Cat>();
 
-           @Override
-           public boolean isEmpty() {
-               return false;
-           }
+        String s;
+        for (int i=0; i<10; i++) {
+            s = "Кот номер:"+i;
+            mapCats.put (s, new Cat (s));
+        }
 
-           @Override
-           public boolean containsKey(Object key) {
-               return false;
-           }
-
-           @Override
-           public boolean containsValue(Object value) {
-               return false;
-           }
-
-           @Override
-           public Cat get(Object key) {
-               return null;
-           }
-
-           @Override
-           public Cat put(String key, Cat value) {
-               return null;
-           }
-
-           @Override
-           public Cat remove(Object key) {
-               return null;
-           }
-
-           @Override
-           public void putAll(Map<? extends String, ? extends Cat> m) {
-
-           }
-
-           @Override
-           public void clear() {
-
-           }
-
-           @Override
-           public Set<String> keySet() {
-               return null;
-           }
-
-           @Override
-           public Collection<Cat> values() {
-               return null;
-           }
-
-           @Override
-           public Set<Entry<String, Cat>> entrySet() {
-               return null;
-           }
-       };
-
-        animal.put("one1",new Cat("Gif1"));
-        animal.put("one2",new Cat("Gif2"));
-        animal.put("one3",new Cat("Gif3"));
-        animal.put("one4",new Cat("Gif4"));
-        animal.put("one5",new Cat("Gif5"));
-        animal.put("one6",new Cat("Gif6"));
-        animal.put("one7",new Cat("Gif7"));
-        animal.put("one8",new Cat("Gif8"));
-        animal.put("one9",new Cat("Gif9"));
-
-        return animal;
-
+        return mapCats;
     }
 
     public static Set<Cat> convertMapToSet(Map<String, Cat> map) {
-       Set<Cat> cats = new Set<Cat>() {
-           @Override
-           public int size() {
-               return 0;
-           }
-
-           @Override
-           public boolean isEmpty() {
-               return false;
-           }
-
-           @Override
-           public boolean contains(Object o) {
-               return false;
-           }
-
-           @Override
-           public Iterator<Cat> iterator() {
-               return null;
-           }
-
-           @Override
-           public Object[] toArray() {
-               return new Object[0];
-           }
-
-           @Override
-           public <T> T[] toArray(T[] a) {
-               return null;
-           }
-
-           @Override
-           public boolean add(Cat cat) {
-               return false;
-           }
-
-           @Override
-           public boolean remove(Object o) {
-               return false;
-           }
-
-           @Override
-           public boolean containsAll(Collection<?> c) {
-               return false;
-           }
-
-           @Override
-           public boolean addAll(Collection<? extends Cat> c) {
-               return false;
-           }
-
-           @Override
-           public boolean retainAll(Collection<?> c) {
-               return false;
-           }
-
-           @Override
-           public boolean removeAll(Collection<?> c) {
-               return false;
-           }
-
-           @Override
-           public void clear() {
-
-           }
-
-
-
-       };
-       return cats;
+        //напишите тут ваш код
+        return new HashSet<>(map.values());
     }
 
     public static void printCatSet(Set<Cat> set) {
