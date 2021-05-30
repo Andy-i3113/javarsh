@@ -38,6 +38,22 @@ public class Solution {
             System.out.println(allPeople.indexOf(person));
         }
 
+        if (args[0].equals("-u")) {
+
+
+
+
+
+        }
+
+        if (args[0].equals("-d")) {
+
+        }
+
+        if (args[0].equals("-i")) {
+
+        }
+
 
 
 
