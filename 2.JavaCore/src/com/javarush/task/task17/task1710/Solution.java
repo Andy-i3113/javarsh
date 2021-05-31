@@ -38,27 +38,36 @@ public class Solution {
             System.out.println(allPeople.indexOf(person));
         }
 
+        // -u id name sex bd
         if (args[0].equals("-u")) {
-
-
-
-
-
+            Date date = dateFormat.parse(args[4]);
+            person = allPeople.get(Integer.parseInt(args[1]));
+            if (args[3].equals("м")) {
+                person.setSex(Sex.MALE);
+            }
+            else {
+                person.setSex(Sex.FEMALE);
+            }
+            person.setBirthDate(date);
+            person.setName(args[2]);
         }
 
+        // -d id
         if (args[0].equals("-d")) {
 
-        }
+            person = allPeople.get(Integer.parseInt(args[1]));
+            person.setBirthDate(null);
+            person.setSex(null);
+            person.setName(null);
 
+        }
+        // -i id (Миронов м 15-Apr-1990)
         if (args[0].equals("-i")) {
-
+            person = allPeople.get(Integer.parseInt(args[1]));
+            String sex;
+            if(person.getSex() == Sex.MALE) { sex="м"; } else {sex="ж";}
+            System.out.println(person.getName()+" "+sex+" "+dateFormatPrt.format(person.getBirthDate()));
         }
 
-
-
-
-
-
-        //start here - начни тут
     }
 }
